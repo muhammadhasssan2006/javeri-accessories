@@ -1,0 +1,19 @@
+ /* footer layout start  */
+ footer{
+    background-color: #B33771;
+
+    color: white;
+}
+/* footer layout end  */
+/* footer-2 layout start  */
+
+/* footer-2 layout end  */
+
+li{
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-right: 15px;
+}
+li:hover{
+    text-decoration: underline;
+}
