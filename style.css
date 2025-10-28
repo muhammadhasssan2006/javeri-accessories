@@ -92,4 +92,29 @@ li:hover{
     cursor: pointer;
 }
 /* card layout end  */
-03497490739
+
+
+/* footer layout start  */
+.footer-layout{
+    background-color: #2f3542;
+    color: #dfe4ea;
+    font-size: 14px;
+}
+.footer-info{
+    font-size: 19px ;
+    
+}
+.ft-color{
+    color: #b1b3b5;
+
+
+}
+.copy-right-text{
+    border: 1px solid #535455;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #535455;
+    text-align: center;
+    padding-top: 5px;
+}
+/* footer layout end  */
