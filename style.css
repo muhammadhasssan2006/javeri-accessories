@@ -1,6 +1,5 @@
  /* footer layout start  */
  footer{
-    /* background-color: #B33771; */
         background: linear-gradient(135deg, #65f6cf, #fd85f7);
 
 
@@ -8,6 +7,10 @@
 }
 /* footer layout end  */
 /* footer-2 layout start  */
+.footer-2{
+    background-color: #f5f6fb !important;
+   
+}
 
 /* footer-2 layout end  */
 
@@ -34,11 +37,9 @@ li:hover{
 
 /* about layout start */
 .about-text-1{
-     /* background-color: #B33771; */
          background: linear-gradient(135deg, #659DE0, #FC81B4);
 
     color: white;
-        /* background: linear-gradient(135deg, #f6d365, #fda085); */
         
 
     text-align: center;
@@ -118,3 +119,12 @@ li:hover{
     padding-top: 5px;
 }
 /* footer layout end  */
+
+/* earikng layout start  */
+.earing-text{
+    font-size: 14px;
+    text-transform: capitalize;
+        color: #5f5f60;
+
+}
+/* earikng layout end  */
