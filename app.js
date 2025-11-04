@@ -1,3 +1,19 @@
+const firebaseConfig = {
+        apiKey: "AIzaSyAJuOHhnErc30QynmAta3S003LBB1wk8hw",
+        authDomain: "javeri-accessories.firebaseapp.com",
+        databaseURL: "https://javeri-accessories-default-rtdb.firebaseio.com",
+        projectId: "javeri-accessories",
+        storageBucket: "javeri-accessories.firebasestorage.app",
+        messagingSenderId: "17836715551",
+        appId: "1:17836715551:web:4a9809d361dcb3ac71ef2a",
+        measurementId: "G-EM03ZS331R"
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const database = firebase.database(app);
+    
+
 
 // footer text start-------
 var messages = [
@@ -128,3 +144,60 @@ function toggleText() {
 }
 
 // about text end----
+
+
+// add to cart function 
+
+function addToCart(img,disc,price){
+  
+  
+  var obj ={
+    image:img,
+    description:disc,
+    price:price,
+  }
+   var ref = database.ref("Order");
+        ref.push(obj)
+            .then(() => {
+                alert(" Order placed  successfully!");
+                document.getElementById("productForm").reset();
+            })
+            .catch((error) => {
+                console.error(" Error: ", error);
+            });
+  console.log(img,disc,price);
+}
+
+
+// contact form 
+
+
+
+function contact(){
+var userFirstName = document.getElementById("FirstName").value;
+var userLastName = document.getElementById("LastName").value;
+var userEmail = document.getElementById("email").value;
+
+var contactForm={
+
+  Firstname:userFirstName,
+  Lastname:userLastName,
+  Email:userEmail,
+}
+
+   var ref = database.ref("contact");
+        ref.push(contactForm)
+            .then(() => {
+                alert(" Form Submitted!");
+                // document.getElementById("contactForm");
+          
+
+            })
+            .catch((error) => {
+                console.error(" Error: ", error);
+            });
+                //   userFirstName.innerHTML=""
+                // userLastName.innerHTML=""
+                // userEmail.innerHTML=""
+  // console.log(img,disc,price);
+}
