@@ -145,33 +145,74 @@ function toggleText() {
 
 // about text end----
 
+// addto cart start----------
+var counter = document.getElementById("counter");
+var table = document.getElementById("cartProducts");
+var emptyMessage = document.getElementById("emptyMessage");
+var cartCount = 0;
 
-// add to cart function 
+// addto cart function 
+function addToCart(img, title, price, ) {
+  var item = {
+    product_img: img,
+    product_title: title,
+    product_price: price,
+  };
+  var ref = firebase.database().ref("Order");
+  ref.push(item);
+  alert("Item added to cart");
+}
 
-function addToCart(img,disc,price){
-  
-  
-  var obj ={
-    image:img,
-    description:disc,
-    price:price,
+// show cart item on page
+firebase.database().ref("Order").on("child_added", function (data) {
+  var key = data.key;
+  var item = data.val();
+
+  cartCount++;
+  counter.innerText = cartCount;
+  emptyMessage.style.display = "none";
+
+
+  table.innerHTML += `
+    <tr id="row-${key}">
+      <td><img src="${item.product_img}" width="140"  class="img-fluid rounded" /></td>
+      <td class="text-wrap">${item.product_title}</td>
+      <td>PKR ${item.product_price }</td>
+     
+      <td>
+        <button class="btn btn-danger btn-sm" onclick="deleteItem('${key}')">
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  `;
+});
+
+// delete button
+function deleteItem(key) {
+  firebase.database().ref("Order").child(key).remove();
+  document.getElementById(`row-${key}`).remove();
+  cartCount--;
+  counter.innerText = cartCount;
+
+  if (cartCount === 0) {
+    emptyMessage.style.display = "block";
+    table.innerHTML = "";
   }
-   var ref = database.ref("Order");
-        ref.push(obj)
-            .then(() => {
-                alert(" Order placed  successfully!");
-                document.getElementById("productForm").reset();
-            })
-            .catch((error) => {
-                console.error(" Error: ", error);
-            });
-  console.log(img,disc,price);
 }
 
 
-// contact form 
+// cart counter-------
+firebase.database().ref("Order").once("value", function (snapshot) {
+  cartCount = snapshot.numChildren();
+  counter.innerText = cartCount;
+  if (cartCount === 0) {
+    emptyMessage.style.display = "block";
+  }
+});
 
 
+// contact form -----------
 
 function contact(){
 var userFirstName = document.getElementById("FirstName").value;
@@ -196,8 +237,74 @@ var contactForm={
             .catch((error) => {
                 console.error(" Error: ", error);
             });
-                //   userFirstName.innerHTML=""
-                // userLastName.innerHTML=""
-                // userEmail.innerHTML=""
-  // console.log(img,disc,price);
+                
 }
+
+
+
+// signup--------------
+
+function signup() {
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+
+  console.log(name, email, password);
+
+  firebase
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .then(function (response) {
+      console.log(response);
+
+      var user_uid = response.user.uid;
+
+      var user_obj = {
+        user_name: name,
+      };
+
+      //   data save on database
+
+      firebase
+        .database()
+        .ref("users/" + user_uid)
+        .set(user_obj);
+
+      setTimeout(function () {
+        window.location.href = "./login.html";
+      }, 3000);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
+function login() {
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .then(function (response) {
+      console.log(response);
+
+      var user_uid = response.user.uid;
+
+      firebase
+        .database()
+        .ref("users/" + user_uid)
+        .on("child_added", function (data) {
+          console.log(data.val());
+          localStorage.setItem("username", data.val());
+        });
+
+      setTimeout(function () {
+        window.location.href = "index.html";
+      }, 3000);
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+}
+

@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="../assets/icons/logo.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-database.js"></script>
   </head>
   <body>
    <!-- header layout start  --> 
@@ -32,8 +34,8 @@
       </a>
     </div>
     <div class="user-cart">
-      <a href="#"><i class="fa-solid fa-user fs-2 text-secondary  user-icon"></i></a>
-      <a href="../addToCart.html"><i class="fa-solid fa-bag-shopping text-secondary cart-icon fs-2"></i></a>
+      <a href="../signUp.html"><i class="fa-solid fa-user fs-2 text-secondary  user-icon"></i></a>
+      <a href="../addToCart.html"><i class="fa-solid fa-bag-shopping text-secondary cart-icon fs-2"></i></a><span id="counter">0</span>
     </div>  
   </div>
 
@@ -53,10 +55,8 @@
           <li class="nav-item"><a class="nav-link" href="../Earing/earing.html">Earings</a></li>
           <li class="nav-item"><a class="nav-link" href="../Bangles/bangles.html">Bangles</a></li>
           <li class="nav-item"><a class="nav-link" href="../Rings/ring.html">Rings</a></li>
-          <li class="nav-item"><a class="nav-link" href="../Mens/mens.html">Men's</a></li>
           <li class="nav-item"><a class="nav-link text-decoration-underline" href="../Necklace/necklace.html">Necklace</a></li>
-          <li class="nav-item"><a class="nav-link" href="../Pandent/pendant.html">Pendant Set</a></li>
-          <li class="nav-item"><a class="nav-link" href="../Mala/mala.html">Mala</a></li>
+          <li class="nav-item"><a class="nav-link" href="../Men/men.html">Men's</a></li>
           <li class="nav-item"><a class="nav-link" href="../Accessories/accessories.html">Accessories</a></li>
         </ul>
       </div>
@@ -72,55 +72,47 @@
   <div class="row">
     <!-- card-1  -->
     <div class="col-lg-3 col-md-6 col-sm-6">
-      <div>
-        <!-- <a class="text-decoration-none text-dark" href="Earing/earing.html"> -->
+      <div class="m-2">
 
-          <div class="card-img"><img img width="100%" height="100%"  src="../assets/neckles/neckles-img-1.webp" alt=""></div>
-         <div class="mt-3 "><p>Javeri Stone Earrings Online <br> in Pakistan
+          <div class="card-img"><img img width="100%" height="100%"  src="https://images.unsplash.com/photo-1620656798579-1984d9e87df7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bmVja2xhY2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600" alt=""></div>
+         <div class="mt-3 "><p>Javeri gold necklace Online <br> in Pakistan
          <br> Rs.2,900.00 PKR </p>
-         <button class="btn btn-dark">Add to Cart</button>
+         <button class="btn btn-dark" onclick="addToCart(`https://images.unsplash.com/photo-1620656798579-1984d9e87df7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bmVja2xhY2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600`,`Javeri gold necklace Online`,`2,900.00`)">Add to Cart</button>
         </div>
-        <!-- </a> -->
       </div>
     </div>
 
     <!-- card-2  -->
       <div class="col-lg-3 col-md-6 col-sm-6">
-      <div>
-        <!-- <a class="text-decoration-none text-dark" href="Bangles/bangles.html"> -->
+      <div class="m-2">
 
-          <div class="card-img"><img img width="100%" height="100%"  src="../assets/neckles/neckles-img-2.avif" alt=""></div>
-          <div class="mt-3 "><p>Javeri Stone Earrings Online <br> in Pakistan
+          <div class="card-img"><img img width="100%" height="100%"  src="https://media.istockphoto.com/id/1739081072/photo/woman-modern-gold-metal-necklace-on-chain.webp?a=1&s=612x612&w=0&k=20&c=YV6xhzo5_Yc7wTrR-9cySLvgLodmoLePJDNmi0XcXR0=" alt=""></div>
+          <div class="mt-3 "><p>Javeri chain necklace Online <br> in Pakistan
          <br> Rs.2,000.00 PKR </p>
-         <button class="btn btn-dark">Add to Cart</button>
+         <button class="btn btn-dark" onclick="addToCart(`https://media.istockphoto.com/id/1739081072/photo/woman-modern-gold-metal-necklace-on-chain.webp?a=1&s=612x612&w=0&k=20&c=YV6xhzo5_Yc7wTrR-9cySLvgLodmoLePJDNmi0XcXR0=`,`Javeri chain necklace Online`,`2,000.00`)">Add to Cart</button>
         </div>
-        <!-- </a> -->
       </div>
     </div>
     <!-- card-3  -->
       <div class="col-lg-3 col-md-6 col-sm-6">
-      <div>
-        <!-- <a class="text-decoration-none text-dark" href="Pandent/pendant.html"> -->
+      <div class="m-2">
 
-          <div class=" card-img"><img width="100%" height="100%" src="../assets/neckles/neckles-img-3.avif " alt=""></div>
-           <div class="mt-3 "><p>Javeri Stone Earrings Online <br> in Pakistan
+          <div class=" card-img"><img width="100%" height="100%" src="https://media.istockphoto.com/id/1740930299/photo/close-up-necklace-on-necklace-girls-neck-beautiful-woman-wearing-black-jacket-style-with.webp?a=1&s=612x612&w=0&k=20&c=NJqwJAhsU1zigfu1HCe-Ui2jUYOr49Z0Bnu-oqXG73Q=" alt=""></div>
+           <div class="mt-3 "><p>Javeri chain necklace Online <br> in Pakistan
          <br> Rs.2,200.00 PKR </p>
-         <button class="btn btn-dark">Add to Cart</button>
+         <button class="btn btn-dark" onclick="addToCart(`https://media.istockphoto.com/id/1740930299/photo/close-up-necklace-on-necklace-girls-neck-beautiful-woman-wearing-black-jacket-style-with.webp?a=1&s=612x612&w=0&k=20&c=NJqwJAhsU1zigfu1HCe-Ui2jUYOr49Z0Bnu-oqXG73Q=`,`Javeri chain necklace Online`,`2,200.00`)">Add to Cart</button>
         </div>
-        <!-- </a> -->
       </div>
     </div>
     <!-- card-4  -->
       <div class="col-lg-3 col-md-6 col-sm-6">
-      <div>
-        <!-- <a class="text-decoration-none text-dark" href="Mala/mala.html"> -->
+      <div class="m-2">
 
-          <div  class="card-img"><img width="100%" height="100%"  src="../assets/neckles/neckles-img-4.avif" alt=""></div>
+          <div  class="card-img"><img width="100%" height="100%"  src="https://media.istockphoto.com/id/1739152168/photo/beautiful-model-brunette-curly-hair-woman-on-modern-gold-metal-necklace-chain.webp?a=1&s=612x612&w=0&k=20&c=RSeQYwith4cBDOCqJX5c5Gum26MJfBm2cnWgkjF6AHY=" alt=""></div>
           <div class="mt-3 "><p>Javeri Stone Earrings Online <br> in Pakistan
-         <br> Rs.3,000.00 PKR </p>
-         <button class="btn btn-dark">Add to Cart</button>
+         <br> Rs.1,500.00 PKR </p>
+         <button class="btn btn-dark" onclick="addToCart(`https://media.istockphoto.com/id/1739152168/photo/beautiful-model-brunette-curly-hair-woman-on-modern-gold-metal-necklace-chain.webp?a=1&s=612x612&w=0&k=20&c=RSeQYwith4cBDOCqJX5c5Gum26MJfBm2cnWgkjF6AHY=`,`Javeri chain necklace Online`,`1,500.00`)">Add to Cart</button>
         </div>
-        <!-- </a> -->
       </div>
     </div>
     
@@ -132,54 +124,45 @@
     <!-- card-1  -->
     <div class="col-lg-3 col-md-6 col-sm-6 ">
       <div>
-        <!-- <a class="text-decoration-none text-dark" href="Earing/earing.html"> -->
 
-          <div class="card-img"><img img width="100%" height="100%"  src="../assets/neckles/neckles-img-5.avif" alt=""></div>
-           <div class="mt-3 "><p>Javeri Stone Earrings Online <br> in Pakistan
-         <br> Rs.1,400.00 PKR </p>
-         <button class="btn btn-dark">Add to Cart</button>
+          <div class="card-img"><img img width="100%" height="100%"  src="https://images.unsplash.com/photo-1685970731571-72ede0cb26ea?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=688" alt=""></div>
+           <div class="mt-3 "><p>Javeri flower necklace Online <br> in Pakistan
+         <br> Rs.2,400.00 PKR </p>
+         <button class="btn btn-dark" onclick="addToCart(`https://images.unsplash.com/photo-1685970731571-72ede0cb26ea?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=688`,`Javeri flower necklace Online`,`2,400.00`)">Add to Cart</button>
         </div>
-        <!-- </a> -->
       </div>
     </div>
 
     <!-- card-2  -->
       <div class="col-lg-3 col-md-6 col-sm-6">
-      <div>
-        <!-- <a class="text-decoration-none text-dark" href="Bangles/bangles.html"> -->
+      <div class="m-2">
 
-          <div class="card-img"><img img width="100%" height="100%"  src="../assets/neckles/neckles-img-6.avif" alt=""></div>
-           <div class="mt-3 "><p>Javeri Stone Earrings Online <br> in Pakistan
+          <div class="card-img"><img img width="100%" height="100%"  src="https://images.unsplash.com/photo-1693834084392-fa61a52a81c0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&q=60&w=600" alt=""></div>
+           <div class="mt-3 "><p>Javeri butterfly necklace Online <br> in Pakistan
          <br> Rs.2,500.00 PKR </p>
-         <button class="btn btn-dark">Add to Cart</button>
+         <button class="btn btn-dark" onclick="addToCart(`https://images.unsplash.com/photo-1693834084392-fa61a52a81c0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&q=60&w=600`,`Javeri butterfly necklace Online`,`2,500.00`)">Add to Cart</button>
         </div>
-        <!-- </a> -->
       </div>
     </div>
     <!-- card-3  -->
       <div class="col-lg-3 col-md-6 col-sm-6">
-      <div>
-        <!-- <a class="text-decoration-none text-dark" href="Pandent/pendant.html"> -->
-
-          <div class=" card-img"><img width="100%" height="100%" src="../assets/neckles/neckles-img-7.avif " alt=""></div>
-          <div class="mt-3 "><p>Javeri Stone Earrings Online <br> in Pakistan
-         <br> Rs.2,200.00 PKR </p>
-         <button class="btn btn-dark">Add to Cart</button>
+      <div class="m-2">
+          <div class=" card-img"><img width="100%" height="100%" src="https://images.unsplash.com/photo-1635767798638-3e25273a8236?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&q=60&w=600 " alt=""></div>
+          <div class="mt-3 "><p>Javeri chain necklace Online <br> in Pakistan
+         <br> Rs.3,200.00 PKR </p>
+         <button class="btn btn-dark" onclick="addToCart(`https://images.unsplash.com/photo-1635767798638-3e25273a8236?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&q=60&w=600`,`Javeri chain necklace Online`,`3,200.00`)">Add to Cart</button>
         </div>
-        <!-- </a> -->
       </div>
     </div>
     <!-- card-4  -->
       <div class="col-lg-3 col-md-6 col-sm-6">
-      <div>
-        <!-- <a class="text-decoration-none text-dark" href="Mala/mala.html"> -->
+      <div class="m-2">
 
-          <div  class="card-img"><img width="100%" height="100%"  src="../assets/neckles/neckles-img-8.avif" alt=""></div>
-           <div class="mt-3 "><p>Javeri Stone Earrings Online <br> in Pakistan</p>
-            <p>Rs.2,500.00 PKR</p>
-         <button class="btn btn-dark">Add to Cart</button>
+          <div  class="card-img"><img width="100%" height="100%"  src="https://images.unsplash.com/photo-1671513576351-73ebaf8453f6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI1fHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=600" alt=""></div>
+           <div class="mt-3 "><p>Javeri chain necklace  Online <br> in Pakistan</p>
+            <p>Rs.2,800.00 PKR</p>
+         <button class="btn btn-dark" onclick="addToCart(`https://images.unsplash.com/photo-1671513576351-73ebaf8453f6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI1fHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=600`,`Javeri chain necklace  Online`,`2,800.00`)">Add to Cart</button>
         </div>
-        <!-- </a> -->
       </div>
     </div>
     
@@ -192,131 +175,62 @@
   <div class="row mt-4">
     <!-- card-1  -->
     <div class="col-lg-3 col-md-6 col-sm-6">
-      <div>
-        <!-- <a class="text-decoration-none text-dark" href="Earing/earing.html"> -->
-
-          <div class="card-img"><img img width="100%" height="100%"  src="../assets/neckles/neckles-img-9.avif" alt=""></div>
-           <div class="mt-3 "><p>Javeri Stone Earrings Online <br> in Pakistan</p>
-            <p>Rs.3,000.00 PKR</p>
-         <button class="btn btn-dark">Add to Cart</button>
-        </div>
-        <!-- </a> -->
-      </div>
-    </div>
-
-    <!-- card-2  -->
-      <div class="col-lg-3 col-md-6 col-sm-6">
-      <div>
-        <!-- <a class="text-decoration-none text-dark" href="Bangles/bangles.html"> -->
-
-          <div class="card-img"><img img width="100%" height="100%"  src="../assets/neckles/neckles-img-10.avif" alt=""></div>
-           <div class="mt-3 ">
-            <p>Javeri Stone Earrings Online <br> in Pakistan</p>
-            <p>Rs.5,800.00 PKR</p>
-            <button class="btn btn-dark">Add to Cart</button>
-        </div>
-        <!-- </a> -->
-      </div>
-    </div>
-    <!-- card-3  -->
-      <div class="col-lg-3 col-md-6 col-sm-6">
-      <div>
-        <!-- <a class="text-decoration-none text-dark" href="Pandent/pendant.html"> -->
-
-          <div class=" card-img"><img width="100%" height="100%" src="../assets/neckles/neckles-img-11.avif " alt=""></div>
-           <div class="mt-3 ">
-            <p>Javeri Stone Earrings Online <br> in Pakistan</p>
-            <p>Rs.2,000.00 PKR</p>
-         <button class="btn btn-dark">Add to Cart</button>
-        </div>
-        <!-- </a> -->
-      </div>
-    </div>
-    <!-- card-4  -->
-      <div class="col-lg-3 col-md-6 col-sm-6">
-      <div>
-        <!-- <a class="text-decoration-none text-dark" href="Mala/mala.html"> -->
-
-          <div  class="card-img"><img width="100%" height="100%"  src="../assets/neckles/neckles-img-12.avif" alt=""></div>
-          <div class="mt-3 ">
-            <p>Javeri Stone Earrings Online <br> in Pakistan</p>
-            <p>Rs.3,000.00 PKR</p>
-         <button class="btn btn-dark">Add to Cart</button>
-        </div>
-        <!-- </a> -->
-      </div>
-    </div>
-    
-  </div>
-</div>
-
-<!-- row-4  -->
-
- <div class="container earing-text">
-  <div class="row mt-4">
-    <!-- card-1  -->
-    <div class="col-lg-3 col-md-6 col-sm-6 ">
-      <div>
-        <!-- <a class="text-decoration-none text-dark" href="Earing/earing.html"> -->
-
-          <div class="card-img"><img img width="100%" height="100%"  src="../assets/neckles/neckles-img-13.avif" alt=""></div>
-           <div class="mt-3 ">
-            <p>Javeri Stone Earrings Online <br> in Pakistan</p>
-            <p>Rs.2,500.00 PKR</p>
-         <button class="btn btn-dark">Add to Cart</button>
-        </div>
-        <!-- </a> -->
-      </div>
-    </div>
-
-    <!-- card-2  -->
-      <div class="col-lg-3 col-md-6 col-sm-6">
-      <div>
-        <!-- <a class="text-decoration-none text-dark" href="Bangles/bangles.html"> -->
-
-          <div class="card-img"><img img width="100%" height="100%"  src="../assets/neckles/neckles-img-14.avif" alt=""></div>
-           <div class="mt-3 "><p>Javeri Stone Earrings Online <br> in Pakistan</p>
+      <div class="m-2">
+  
+          <div class="card-img"><img img width="100%" height="100%"  src="https://images.unsplash.com/photo-1581344947734-faed9fc80bf9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDM3fHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=600" alt=""></div>
+           <div class="mt-3 "><p>Javeri gemstone necklace Online <br> in Pakistan</p>
             <p>Rs.4,000.00 PKR</p>
-         <button class="btn btn-dark">Add to Cart</button>
+         <button class="btn btn-dark" onclick="addToCart(`https://images.unsplash.com/photo-1581344947734-faed9fc80bf9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDM3fHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=600`,`Javeri gemstone necklace Online`,`4,000.00`)">Add to Cart</button>
         </div>
-        <!-- </a> -->
+      </div>
+    </div>
+
+    <!-- card-2  -->
+      <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="m-2">
+
+          <div class="card-img"><img img width="100%" height="100%"  src="https://media.istockphoto.com/id/1174242874/photo/decoration-on-the-head-of-precious-stones-close-up-isolate.webp?a=1&s=612x612&w=0&k=20&c=kEhoKk8bV0iUSb3D5XLBiIjj_8_JN8u27rA-PEw1Cvw=" alt=""></div>
+           <div class="mt-3 ">
+            <p>Javeri Stone necklace Online <br> in Pakistan</p>
+            <p>Rs.5,500.00 PKR</p>
+            <button class="btn btn-dark" onclick="addToCart(`https://media.istockphoto.com/id/1174242874/photo/decoration-on-the-head-of-precious-stones-close-up-isolate.webp?a=1&s=612x612&w=0&k=20&c=kEhoKk8bV0iUSb3D5XLBiIjj_8_JN8u27rA-PEw1Cvw=`,`Javeri Stone necklace Online`,`5,500.00`)">Add to Cart</button>
+        </div>
       </div>
     </div>
     <!-- card-3  -->
       <div class="col-lg-3 col-md-6 col-sm-6">
-      <div>
-        <!-- <a class="text-decoration-none text-dark" href="Pandent/pendant.html"> -->
+      <div class="m-2">
 
-          <div class=" card-img"><img width="100%" height="100%" src="../assets/neckles/neckles-img-15.avif " alt=""></div>
+          <div class=" card-img"><img width="100%" height="100%" src="https://images.unsplash.com/photo-1721807551235-4072be6913c0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDMyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=600 " alt=""></div>
            <div class="mt-3 ">
-            <p>Javeri Stone Earrings Online <br> in Pakistan</p>
+            <p>Javeri bets necklace Online <br> in Pakistan</p>
             <p>Rs.3,000.00 PKR</p>
-         <button class="btn btn-dark">Add to Cart</button>
+         <button class="btn btn-dark" onclick="addToCart(`https://images.unsplash.com/photo-1721807551235-4072be6913c0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDMyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=600`,`Javeri bets necklace Online`,`3,000.00`)">Add to Cart</button>
         </div>
-        <!-- </a> -->
       </div>
     </div>
     <!-- card-4  -->
       <div class="col-lg-3 col-md-6 col-sm-6">
-      <div>
-        <!-- <a class="text-decoration-none text-dark" href="Mala/mala.html"> -->
+      <div class="m-2">
 
-          <div  class="card-img"><img width="100%" height="100%"  src="../assets/neckles/neckles-img-16.avif" alt=""></div>
-          <div class="mt-3 "><p>Javeri Stone Earrings Online <br> in Pakistan</p>
-            <p>Rs.4,500.00 PKR</p>
-         <button class="btn btn-dark">Add to Cart</button>
+          <div  class="card-img"><img width="100%" height="100%"  src="https://images.unsplash.com/photo-1739194806935-3b4c66aee282?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDQzfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=600" alt=""></div>
+          <div class="mt-3 ">
+            <p>Javeri green & white gem necklace Online  in Pakistan</p>
+            <p>Rs.6,000.00 PKR</p>
+         <button class="btn btn-dark" onclick="addToCart(`https://images.unsplash.com/photo-1739194806935-3b4c66aee282?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDQzfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=600`,`Javeri green & white gem necklace Online`,`6,000.00`)">Add to Cart</button>
         </div>
-        <!-- </a> -->
       </div>
     </div>
     
   </div>
 </div>
+
+
 
 <!-- buttons  -->
  <div class="mt-5 text-center mb-3 ">
-    <a class="btn btn-dark w-25 fs-5 me-3" href="../Mens/mens.html">Back</a>
-    <a class="btn btn-dark w-25 fs-5 me-3" href="../Pandent/pendant.html">Next</a>
+    <a class="btn btn-dark w-25 fs-5 me-3" href="../Rings/ring.html">Back</a>
+    <a class="btn btn-dark w-25 fs-5 me-3" href="../Men/men.html">Next</a>
   </div>
 
   <!-- footer layout start  -->
@@ -324,7 +238,7 @@
   <div class="row">
     <div class="col-lg-6 col-md-6  col-sm-12">
       <p class="mb-4 footer-info">Information</p>
-      <a href="" class="fs-6 text-decoration-none ft-color ">Contact Us</a>
+      <a href="../Contact/contact.html" class="fs-6 text-decoration-underline ft-color ">Contact Us</a>
       <br>
       <a href="" class="fs-6 text-decoration-none ft-color">About Us</a>
     

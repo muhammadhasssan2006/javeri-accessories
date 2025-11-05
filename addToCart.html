@@ -3,11 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>javeri accessories</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="assets/icons/logo.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-database.js"></script>
   </head>
   <body>
     <!-- header layout start  --> 
@@ -36,7 +38,8 @@
     <!-- Right: User & Cart icons -->
     <div class="user-cart">
       <a href="#"><i class="fa-solid fa-user fs-2 text-secondary  user-icon"></i></a>
-      <a href="addToCart.html"><i class="fa-solid fa-bag-shopping text-secondary cart-icon fs-2"></i></a>
+      <a href="addToCart.html"><i class="fa-solid fa-bag-shopping text-secondary cart-icon fs-2"></i></a><span id="counter">0</span> 
+      
     </div>  
   </div>
 
@@ -56,10 +59,8 @@
           <li class="nav-item"><a class="nav-link" href="Earing/earing.html">Earings</a></li>
           <li class="nav-item"><a class="nav-link" href="Bangles/bangles.html">Bangles</a></li>
           <li class="nav-item"><a class="nav-link" href="Rings/ring.html">Rings</a></li>
-          <li class="nav-item"><a class="nav-link" href="Mens/mens.html">Men's</a></li>
           <li class="nav-item"><a class="nav-link" href="Necklace/necklace.html">Necklace</a></li>
-          <li class="nav-item"><a class="nav-link" href="Pandent/pendant.html">Pendant Set</a></li>
-          <li class="nav-item"><a class="nav-link" href="Mala/mala.html">Mala</a></li>
+          <li class="nav-item"><a class="nav-link" href="Men/men.html">Men's</a></li>
           <li class="nav-item"><a class="nav-link" href="Accessories/accessories.html">Accessories</a></li>
         </ul>
       </div>
@@ -67,9 +68,18 @@
   </nav>
 </div>
 
-<table>
-  
-</table>
+<!-- cart layout  -->
+
+<div class="container mt-5">
+  <h2>Your Cart</h2>
+  <div id="emptyMessage" style="display: none;" class="alert alert-warning">
+    Your cart is empty!
+  </div>
+
+  <table class="table table-striped" id="cartProducts">
+    <!-- Rows loaded from JS -->
+  </table>
+</div>
 
 
 
